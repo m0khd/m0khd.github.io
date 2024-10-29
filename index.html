@@ -1,75 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Introduction</title>
-    <style>
-        /* CSS Styling */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f8ff;
-            color: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Hacker Profile</title>
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', monospace;
+    }
 
-        #intro {
-            text-align: center;
-            padding: 20px;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    /* Background settings */
+    body {
+      background-color: #0d0d0d;
+      color: #00ffcc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-        #intro h1 {
-            margin: 0;
-            font-size: 2em;
-        }
+    /* Container for the profile */
+    .container {
+      text-align: center;
+      width: 80%;
+      max-width: 700px;
+      padding: 20px;
+      border: 1px solid #00ffcc;
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0px 0px 20px #00ffcc;
+      border-radius: 10px;
+    }
 
-        #intro p {
-            margin: 10px 0;
-            font-size: 1.1em;
-        }
+    /* Cyberpunk animated title */
+    h1 {
+      font-size: 3em;
+      color: #ff00ff;
+      animation: glitch 1s infinite;
+    }
 
-        button {
-            padding: 10px 20px;
-            background-color: #ff5722;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-size: 1em;
-            cursor: pointer;
-        }
+    /* Glitch effect animation */
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
+      }
+      50% {
+        text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff;
+      }
+      100% {
+        text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
+      }
+    }
 
-        button:hover {
-            background-color: #e64a19;
-        }
-    </style>
+    /* Main description text */
+    p {
+      font-size: 1.2em;
+      margin-top: 15px;
+      color: #00ffcc;
+    }
+
+    /* Glitchy animation for description */
+    .glitch-text {
+      position: relative;
+      color: #00ffcc;
+    }
+
+    .glitch-text::before, .glitch-text::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #ff00ff;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      animation: glitch-text 2s infinite;
+    }
+
+    /* Different glitch timings for each pseudo-element */
+    .glitch-text::before {
+      left: 2px;
+      text-shadow: -1px 0 red;
+      animation: glitch-text 2s infinite linear;
+    }
+
+    .glitch-text::after {
+      left: -2px;
+      text-shadow: -2px 0 cyan;
+      animation: glitch-text 2s infinite linear reverse;
+    }
+
+    /* Glitch keyframes for text elements */
+    @keyframes glitch-text {
+      0% {
+        clip: rect(5px, 9999px, 35px, 0);
+      }
+      50% {
+        clip: rect(15px, 9999px, 20px, 0);
+      }
+      100% {
+        clip: rect(25px, 9999px, 5px, 0);
+      }
+    }
+
+    /* Button styling */
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+      background-color: transparent;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Button hover effect */
+    .btn:hover {
+      color: #ff00ff;
+      border-color: #ff00ff;
+      box-shadow: 0 0 10px #ff00ff;
+    }
+
+    /* Flicker effect */
+    .flicker {
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.4;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1 class="glitch-text" data-text="Cyberpunk Hacker">Cyberpunk Hacker</h1>
+    <p class="glitch-text" data-text="Penetration Tester & Cybersecurity Expert">
+      Penetration Tester & Cybersecurity Expert
+    </p>
+    <p class="flicker">
+      "Welcome to the world of shadows, where the lines between code and reality blur."
+    </p>
+    <a href="#contact" class="btn">Contact Me</a>
+  </div>
 
-<div id="intro">
-    <h1>Hello, I'm alleeeh!</h1>
-    <p>I'm a passionate developer with interests in web development, cybersecurity, and automation.</p>
-    <p>I'm always eager to learn and take on new challenges.</p>
-    <button onclick="showMore()">More About Me</button>
-</div>
-
-<script>
-    // JavaScript function for interaction
-    function showMore() {
-        const introDiv = document.getElementById('intro');
-        const moreInfo = document.createElement('p');
-        moreInfo.innerText = "In my free time, I love exploring new technologies, hiking, and reading!";
-        introDiv.appendChild(moreInfo);
-    }
-</script>
-
+  <script>
+    // Optional: Glitch effect for button
+    document.querySelector('.btn').addEventListener('mouseenter', function () {
+      this.classList.add('glitch-text');
+      setTimeout(() => {
+        this.classList.remove('glitch-text');
+      }, 500);
+    });
+  </script>
 </body>
 </html>
