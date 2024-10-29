@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cyberpunk Hacker Profile</title>
+  <title>Cyberpunk Pentester Profile</title>
   <style>
     /* General reset */
     * {
@@ -13,9 +13,9 @@
       font-family: 'Courier New', monospace;
     }
 
-    /* Background settings */
+    /* Background effect */
     body {
-      background-color: #0d0d0d;
+      background: radial-gradient(circle at center, #000000 0%, #1a1a1a 70%);
       color: #00ffcc;
       display: flex;
       justify-content: center;
@@ -27,49 +27,54 @@
     /* Container for the profile */
     .container {
       text-align: center;
+      padding: 20px;
+      border: 2px solid #00ffcc;
+      background: rgba(0, 0, 0, 0.85);
+      box-shadow: 0px 0px 20px #00ffcc, 0px 0px 30px #ff00ff;
+      border-radius: 10px;
       width: 80%;
       max-width: 700px;
-      padding: 20px;
-      border: 1px solid #00ffcc;
-      background: rgba(0, 0, 0, 0.8);
-      box-shadow: 0px 0px 20px #00ffcc;
-      border-radius: 10px;
     }
 
-    /* Cyberpunk animated title */
+    /* Neon shining title */
     h1 {
       font-size: 3em;
       color: #ff00ff;
-      animation: glitch 1s infinite;
+      animation: shine 1s infinite alternate;
+      text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
     }
 
-    /* Glitch effect animation */
-    @keyframes glitch {
+    /* Shine animation */
+    @keyframes shine {
       0% {
-        text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
-      }
-      50% {
-        text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff;
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #00ffcc, 0 0 30px #ff00ff;
       }
       100% {
-        text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffcc, 0 0 30px #ff00ff, 0 0 40px #00ffcc;
       }
     }
 
-    /* Main description text */
-    p {
+    /* Description text */
+    .description {
       font-size: 1.2em;
       margin-top: 15px;
       color: #00ffcc;
     }
 
-    /* Glitchy animation for description */
-    .glitch-text {
-      position: relative;
-      color: #00ffcc;
+    /* Emphasize keywords */
+    .keyword {
+      color: #ff00ff;
+      text-shadow: 0px 0px 10px #ff00ff;
     }
 
-    .glitch-text::before, .glitch-text::after {
+    /* Glitch effect */
+    .glitch {
+      position: relative;
+      color: #00ffcc;
+      font-size: 1.3em;
+    }
+
+    .glitch::before, .glitch::after {
       content: attr(data-text);
       position: absolute;
       top: 0;
@@ -77,32 +82,35 @@
       color: #ff00ff;
       overflow: hidden;
       clip: rect(0, 0, 0, 0);
-      animation: glitch-text 2s infinite;
+      animation: glitch-effect 1.5s infinite linear;
     }
 
-    /* Different glitch timings for each pseudo-element */
-    .glitch-text::before {
+    .glitch::before {
       left: 2px;
-      text-shadow: -1px 0 red;
-      animation: glitch-text 2s infinite linear;
+      animation: glitch-effect 1.5s infinite linear reverse;
     }
 
-    .glitch-text::after {
+    .glitch::after {
       left: -2px;
-      text-shadow: -2px 0 cyan;
-      animation: glitch-text 2s infinite linear reverse;
+      animation: glitch-effect 1.5s infinite linear;
     }
 
-    /* Glitch keyframes for text elements */
-    @keyframes glitch-text {
+    /* Keyframes for glitching */
+    @keyframes glitch-effect {
       0% {
-        clip: rect(5px, 9999px, 35px, 0);
+        clip: rect(0px, 9999px, 5px, 0);
+      }
+      25% {
+        clip: rect(10px, 9999px, 15px, 0);
       }
       50% {
-        clip: rect(15px, 9999px, 20px, 0);
+        clip: rect(15px, 9999px, 10px, 0);
+      }
+      75% {
+        clip: rect(5px, 9999px, 15px, 0);
       }
       100% {
-        clip: rect(25px, 9999px, 5px, 0);
+        clip: rect(5px, 9999px, 5px, 0);
       }
     }
 
@@ -110,60 +118,39 @@
     .btn {
       display: inline-block;
       margin-top: 20px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       color: #00ffcc;
-      border: 1px solid #00ffcc;
+      border: 2px solid #00ffcc;
       background-color: transparent;
       text-transform: uppercase;
       text-decoration: none;
       font-size: 1.1em;
       transition: 0.3s ease;
       cursor: pointer;
+      box-shadow: 0 0 10px #00ffcc, 0 0 20px #ff00ff;
     }
 
     /* Button hover effect */
     .btn:hover {
       color: #ff00ff;
       border-color: #ff00ff;
-      box-shadow: 0 0 10px #ff00ff;
-    }
-
-    /* Flicker effect */
-    .flicker {
-      animation: flicker 1.5s infinite alternate;
-    }
-
-    @keyframes flicker {
-      0%,
-      100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.4;
-      }
+      box-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffcc;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 class="glitch-text" data-text="Cyberpunk Hacker">Cyberpunk Hacker</h1>
-    <p class="glitch-text" data-text="Penetration Tester & Cybersecurity Expert">
-      Penetration Tester & Cybersecurity Expert
+    <h1 class="glitch" data-text="Cyberpunk Pentester">Cyberpunk Pentester</h1>
+    <p class="description">
+      Penetration Tester & <span class="keyword">Application Security</span> Expert
     </p>
-    <p class="flicker">
-      "Welcome to the world of shadows, where the lines between code and reality blur."
+    <p class="description">
+      Specializing in <span class="keyword">Pentest</span>, <span class="keyword">DevSecOps</span>, and advanced cybersecurity strategies.
     </p>
-    <a href="#contact" class="btn">Contact Me</a>
+    <p class="description">
+      "In the neon shadows, I hunt vulnerabilities, securing the digital realm one exploit at a time."
+    </p>
+    <a href="#contact" class="btn">Connect with Me</a>
   </div>
-
-  <script>
-    // Optional: Glitch effect for button
-    document.querySelector('.btn').addEventListener('mouseenter', function () {
-      this.classList.add('glitch-text');
-      setTimeout(() => {
-        this.classList.remove('glitch-text');
-      }, 500);
-    });
-  </script>
 </body>
 </html>
